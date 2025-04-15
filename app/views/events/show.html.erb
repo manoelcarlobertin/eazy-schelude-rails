@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <% if notice %>
+    <div class="alert alert-success" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <%= render @event %>
+
+  <div class="mt-4">
+    <div class="btn-group" role="group">
+      <%= link_to edit_event_path(@event), class: "btn btn-primary me-2" do %>
+        <i class="bi bi-pencil"></i> Edit this event
+      <% end %>
+
+      <%= link_to events_path, class: "btn btn-secondary me-2" do %>
+        <i class="bi bi-arrow-left"></i> Back to events
+      <% end %>
+
+      <%= button_to @event,
+          method: :delete,
+          class: "btn btn-danger",
+          data: { confirm: "Are you sure?" } do %>
+        <i class="bi bi-trash"></i> Destroy this event
+      <% end %>
+    </div>
+  </div>
+</div>
